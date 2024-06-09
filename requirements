@@ -1,0 +1,25 @@
+
+ML PACKAGES
+
+1. pip install pandas
+2. pip install scikit-learn 
+3. pip install scipy 
+4. pip install numpy
+
+
+UI MATERIAL LIBRARIES
+
+1. pip install crispy-bootstrap5
+   https://pypi.org/project/crispy-bootstrap5/
+
+2. pip install django-admin-interface==0.6.0
+   https://pypi.org/project/django-admin-interface/0.6.0/
+
+3. pip install django-crispy-forms
+   https://django-crispy-forms.readthedocs.io/en/latest/index.html
+
+4. https://mdbootstrap.com/
+
+5. https://pypi.org/project/django-import-export/
+   pip install django-import-export
+

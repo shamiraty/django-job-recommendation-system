@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Job Listings
+{% endblock %}
+
+{% block css %}
+    <style>
+        .job-img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <h2 class="mb-4 text-success"> ML  Job Navigator</h2>
+    <div class="row">
+        {% for job in jobs %}
+            <div class="col-md-4 mb-4">
+                <div class="list-group shadow bg-light">
+                    <div class="list-group-item list-group-item-action d-flex justify-content-between">
+                        <h5 class="mb-0 badge badge-primary">{{ job.title }}</h5><br>
+                    </div>
+                    <div class="list-group-item list-group-item-action d-flex align-items-center">
+                        {% if job.image %}
+                            <img src="{{ job.image.url }}" class="job-img me-3" alt="{{ job.title }}">                          
+                        {% endif %}                       
+                        <div>
+                            <div class="">
+                            <small class="text-secondary">Uploaded: {{ job.created_date }}</small><br>
+                            <small class="text-secondary">Deadline: {{ job.deadline }}</small><br>
+                            <small class="text-primary">Salary: {{ job.salary }}</small><hr>
+                            </div>
+
+                            <a href="{% url 'job_detail' job.id %}" class="btn btn-primary btn-sm position-relative">Details                                        
+                                
+                                <span class="position-absolute top-0 start-100 translate-middle badge  bg-success">
+                                    {{ job.location }}
+                                  <span class="visually-hidden">unread</span>
+                                </span>
+                            </a>                 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

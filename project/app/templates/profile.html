@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ job.title }}
+{% endblock %}
+
+{% block css %}
+    <style>
+        .job-img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 10px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="card-title mb-0">User Profile</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}Avatar {% endif %}" class="img-fluid mb-3" alt="Profile Picture">
+                        </div>
+                        <div class="col-md-8">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><span class="badge bg-secondary">Username:</span> {{ user.username }}</li>
+                                <li class="list-group-item"><span class="badge bg-secondary">Email:</span> {{ user.email }}</li>
+                                <li class="list-group-item"><span class="badge bg-secondary">First Name:</span> {{ user.first_name }}</li>
+                                <li class="list-group-item"><span class="badge bg-secondary">Last Name:</span> {{ user.last_name }}</li>
+                                <!-- Add more profile information as needed -->
+                                <!-- For example, if you have more fields in your profile model -->
+                                <!-- Uncomment and adjust these lines according to your profile model -->
+                                <!-- <li class="list-group-item"><span class="badge bg-secondary">Phone:</span> {{ user.profile.phone }}</li> -->
+                                <!-- <li class="list-group-item"><span class="badge bg-secondary">Address:</span> {{ user.profile.address }}</li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <!-- Add Edit Profile and Change Password buttons -->
+                    
+                    <a href="{% url 'password_change' %}" class="btn btn-secondary">Change Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
